@@ -1,3 +1,34 @@
+/*
+Creation & Computation
+Experiment 1: Pressure
+
+4ten
+
+The code follows a loop (I will address each loop as a "session") that will go through different states through a switch case. 
+Prior to each input state, there will always be a calibration state. 
+At the beginning of the session, the initialization state will count how many users are joining this session by taking tap input from a user. 
+Next, the session will loop through a "counting" state for each user. When a user starts pressing down on the cardboard button, 
+the counting will start. If the user holds the button for less than 10 seconds, the duration will be saved for the user. 
+If the user holds for more than 10 seconds, the program will display a "bust" signal through the LEDs, 
+and save 0 seconds as the duration for the user. 
+After every user in the session is finished, the LED corresponding to the user with the longest duration will light up, 
+indicating the "winner" for this session. Then it will loop back to the initialization state and be ready for a new session.
+
+Credits:
+
+  "Arrays" example
+
+  created 2006
+  by David A. Mellis
+  modified 30 Aug 2011
+  by Tom Igoe
+
+  This example code is in the public domain.
+
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Arrays
+
+*/
+
 int mode = 0;  // Which mode is the program currently at
 // 0: initializing
 // 1: initializing - end
@@ -161,7 +192,7 @@ void CalibrationWaitInput() {
     sensorMax = 0;
     sensorMin = idleSensor;  // Reset sensor calibration
     Serial.println(sensorMin);
-    mode = 3;          // Move to calibration
+    mode = 3;  // Move to calibration
     Serial.println("Calibration Start");
   }
 
